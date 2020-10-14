@@ -8,7 +8,5 @@ before_install:
   - cd frontend-dave
   - docker build -t dveselka/devops-docker -f Dockerfile.dev .
 
-before_script: cd frontend-dave
-
 script:
   - docker run -e CI=true dveselka/devops-docker npm run test
