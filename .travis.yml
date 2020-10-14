@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - cd frontend-dave
+  - docker build -t dveselka/devops-docker -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true dveselka/devops-docker npm run test
